@@ -27,11 +27,25 @@ long long int SquareRootOfNumber(int n)
     }
 return ans;
 }
+double morePrecision(int num,int precision,int n)
+{
+    double ans = n;
+    double factor = 1;
+    for(double i=1;i<=precision;i++)
+    {
+          factor = factor/10;
+        for(double j = ans; j*j<num; j=j+factor)
+        {
+            ans = j;
+        }
+    }
+    return ans;
+}
     int main()
     {
         int num;
         cout<<"enter a number for find sqrt of  number   .....!"<<endl;
         cin>>num;
         int n = SquareRootOfNumber(num);
-        cout<<"root is "<<" "<<n<<endl;
+        cout<<" answer is  ... "<<"  "<<morePrecision(num,3,n)<<endl;
     }
